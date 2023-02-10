@@ -20,7 +20,11 @@ authRoutes.post('/signup', async(req,res)=> {
       
      
     const {name,gender,email,password} = req.body;
-
+      
+       const userPresent = await userModel.findOne({email});
+       if ( userPresent) {
+        res.send({'msg':'Already Exist! please try log in'});
+       }
     try {
            
     bcrypt.hash(password, 7 , async function (err,hash) {
