@@ -1,13 +1,19 @@
 
 const mongoose = require('mongoose');
 
-const string = {type:"String",required:"true"};
+const string = {type:String, required:true};
+const bool = {type: Boolean, default: false}
 
 const todoSchema = new mongoose.Schema (
      
     {
         todo : string,
-        status : true
+        status : bool,
+        userID : string
+    },
+    {
+        timestamps:true,
+        versionKey : false
     }
 
 )
