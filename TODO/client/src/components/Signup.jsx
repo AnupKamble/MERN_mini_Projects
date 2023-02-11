@@ -14,6 +14,7 @@ export default function Signup() {
       [event.target.name]:event.target.value
    })
  }
+//  console.log(input);
 
   const handleSubmit = async ()=> {
 
