@@ -41,9 +41,25 @@ todosRoute.post('/create', Authenticate, async (req, res) => {
 
 todosRoute.patch('/update/:patchID', Authenticate, async (req, res) => {
 
-    try {
-        res.send("i love cricket");
-    }
+    const patchID =  req.params.patchID;
+    const payload = req.body;
+    const userID = req.body.userID;  // userID generated from jwt token 
+
+    try { 
+         const story = await todoModel.findOne({userID});  
+
+         if ( userID !== story.userID) {    // we check the userID from DB and after token generated userID same or not
+
+            res.send({"msg":"not Authorised"});
+         }
+         else {
+       
+            await todoModel.findByIdAndUpdate({_id : patchID},payload,{new:true});
+
+            res.send("todo sucessfully updated");
+         }
+      }
+    
     catch(err) {
         res.send({"msg":"unexpected error"});
     }
@@ -51,9 +67,12 @@ todosRoute.patch('/update/:patchID', Authenticate, async (req, res) => {
 
 
 todosRoute.delete('/delete/:deleteID', Authenticate, async (req, res) => {
+    
+    const deleteID = req.params.deleteID;
 
     try {
-        res.send("i love cricket");
+        await todoModel.findByIdAndDelete({_id : deleteID})
+        res.send("Todo successfully Deleted");
     }
     catch(err) {
         res.send({"msg":"unexpected error"});
