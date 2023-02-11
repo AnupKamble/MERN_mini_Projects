@@ -22,7 +22,9 @@ export default function Login() {
         body : JSON.stringify(user),
       })
       const data = await res.json();
-      console.log(data);
+      const token= data.token;
+      console.log(token);
+      
   }
 
 

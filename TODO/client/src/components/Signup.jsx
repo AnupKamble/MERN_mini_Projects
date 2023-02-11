@@ -33,13 +33,13 @@ export default function Signup() {
   }
 
   return (
-    <div>
-       <h1>Signuppage</h1>
-        <div>
-            <input type="text" name="name" onChange={handleChange}/>
-            <input type="text" name="gender" onChange={handleChange}/>
-            <input type="text" name="email" onChange={handleChange}/>
-            <input type="text" name="password" onChange={handleChange}/>
+    <div style={{ textAlign:'center'}}>
+       <h1>Signup page</h1>
+        <div style={{ textAlign:'center' ,margin:"15px"}}>
+            <input type="text" name="name" onChange={handleChange}/> <br />
+            <input type="text" name="gender" onChange={handleChange}/> <br />
+            <input type="text" name="email" onChange={handleChange}/> <br />
+            <input type="text" name="password" onChange={handleChange}/> <br />
             <button type="submit" onClick={handleSubmit}>Sign up</button>
         </div>
       
