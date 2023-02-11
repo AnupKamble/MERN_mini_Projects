@@ -31,7 +31,7 @@ authRoutes.post('/signup', async (req, res) => {
 
             const data = new userModel({ name, gender, email, password: hash });
             await data.save();
-            res.send('sign up successfully')
+            res.send({"msg":"signup Successfully"})
         })
 
     }
