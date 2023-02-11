@@ -17,7 +17,8 @@ export default function Mytodos() {
 
     let res = await fetch('http://localhost:3035/mytodos/create', {
       headers : {
-        "content-type":"application/json"
+        "content-type":"application/json",
+        "authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2M2U3Y2JiMTc0MWRmY2Q1ZmYyYzIyOTkiLCJpYXQiOjE2NzYxMzk3MDZ9.bcu1MgfMKC3fMwHen1XgdCt0wYukNdMYzbqTwPGUlIY"
       },
       method : 'POST',
       body : JSON.stringify(todos)

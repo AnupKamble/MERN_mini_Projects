@@ -16,7 +16,7 @@ export default function Login() {
   const handleSubmit =async ()=> {
       let res = await fetch('http://localhost:3035/isAuth/login', {
         headers : {
-          "content-type":"application/json"
+          "content-type":"application/json",
         },
         method : 'POST',
         body : JSON.stringify(user),
