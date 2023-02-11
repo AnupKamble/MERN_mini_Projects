@@ -3,6 +3,7 @@ const express = require('express');
 const { connection } = require('./config/db');
 const cors = require('cors');
 const { authRoutes } = require('./routes/auth.routes');
+const { todosRoute } = require('./routes/todos.routes');
 
 
 const app = express();
@@ -10,7 +11,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use('/mytodos', authRoutes)
+app.use('/isAuth', authRoutes);
+app.use('/mytodos', todosRoute);
 
 app.get('/', (req, res) => {
     res.send("Welcome to My App")
