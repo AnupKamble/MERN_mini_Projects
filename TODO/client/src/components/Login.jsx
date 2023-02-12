@@ -24,7 +24,8 @@ export default function Login() {
       const data = await res.json();
       const token= data.token;
       console.log(token);
-      
+     
+      localStorage.setItem('token',JSON.stringify(token))
   }
 
 

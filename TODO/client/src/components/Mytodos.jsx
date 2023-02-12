@@ -13,12 +13,15 @@ export default function Mytodos() {
     })
           
    }
-  const handleSubmit =async()=> {
 
+   const Token = JSON.parse(localStorage.getItem('token'));
+
+  const handleSubmit =async()=> {
+    
     let res = await fetch('http://localhost:3035/mytodos/create', {
       headers : {
         "content-type":"application/json",
-        "authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2M2U3Y2JiMTc0MWRmY2Q1ZmYyYzIyOTkiLCJpYXQiOjE2NzYxMzk3MDZ9.bcu1MgfMKC3fMwHen1XgdCt0wYukNdMYzbqTwPGUlIY"
+        "authorization": Token
       },
       method : 'POST',
       body : JSON.stringify(todos)
@@ -26,6 +29,7 @@ export default function Mytodos() {
      
     const data = await res.json();
     console.log(data);
+    
    }
 
   return (
