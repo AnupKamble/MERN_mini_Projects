@@ -9,7 +9,7 @@ const { todoModel } = require('../models/todos.models');
 const todosRoute = Router();
 
 
-todosRoute.get('/', Authenticate, async (req, res) => {
+todosRoute.get('/', async (req, res) => {
 
     try {
         const data = await todoModel.find();

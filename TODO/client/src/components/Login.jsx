@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-
+import {useNavigate} from 'react-router-dom'
 
 export default function Login() {
 
   const [user , setUser] = useState({});
-
+  const navigate = useNavigate()
 
   const handleChange=(event)=> {
     setUser ({
@@ -26,6 +26,7 @@ export default function Login() {
       console.log(token);
      
       localStorage.setItem('token',JSON.stringify(token))
+      navigate('/mytodos')
   }
 
 
